@@ -1,9 +1,10 @@
 .Signup {
   display: inline-block;
   width: 25vw;
-  background-color: yellow;
+  background-color: burlywood;
   padding: 1rem;
   margin: 1rem;
+  border-radius: 10%;
 }
 
 .input-box {

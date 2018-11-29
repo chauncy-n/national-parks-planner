@@ -1,3 +1,7 @@
+* {
+  border: 1px solid black;
+}
+
 .App {
   text-align: center;
   vertical-align: top;
@@ -13,5 +17,14 @@
   width: 70%;
   margin: 1em auto;
   padding: 4rem;
-  background-color: white;
+
+}
+
+.Park {
+  border: 2px rgb(206, 168, 122);
+  border-radius: 10%;
+  height: 30em;
+  width: 30%;
+  margin: 1em 5em 1em 6em;
+  float: right;
 }

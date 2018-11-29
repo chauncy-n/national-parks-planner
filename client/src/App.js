@@ -4,6 +4,7 @@ import axios from 'axios';
 import Login from './Login';
 import Signup from './Signup';
 import {UserProfile} from './UserProfile';
+import NavBar from './components/NavBar';
 
 class App extends Component {
   constructor(props) {
@@ -88,9 +89,7 @@ class App extends Component {
     if (user) {
       return (
         <div className="App">
-          <header>
-            <h1>National Parks Planner</h1>
-          </header>
+          <NavBar />
           <div className="content-box">
             <UserProfile user={user} logout={this.logout} />
             <p><a onClick={this.handleClick}>Test the protected route. Results below...</a></p>
@@ -101,9 +100,7 @@ class App extends Component {
     } else {
       return (
         <div className="App">
-          <header>
-            <h1>National Parks Planner</h1>
-          </header>
+        <NavBar />
           <div className="content-box">
             <Signup liftToken={this.liftTokenToState} />
             <Login liftToken={this.liftTokenToState} />
