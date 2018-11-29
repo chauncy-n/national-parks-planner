@@ -1,0 +1,38 @@
+.Signup {
+  display: inline-block;
+  width: 25vw;
+  background-color: yellow;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.input-box {
+  margin: 0.4rem;
+}
+
+.left-col {
+  display: inline-block;
+  text-align: right;
+  padding: 0.3em;
+  width: 22%;
+}
+
+.right-col {
+  display: inline-block;
+  text-align: left;
+  padding: 0.3em;
+  width: 35%;
+}
+
+li {
+  margin: 0.1em;
+  padding: 0.1em;
+}
+
+.red {
+  background-color: Tomato;
+}
+
+.green {
+  background-color: YellowGreen;
+}

@@ -1,0 +1,14 @@
+.User-profile {
+  display: inline-block;
+  width: 50vw;
+  background-color: lightblue;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.User-profile span {
+  text-align: left;
+}
+.User-profile a {
+  text-align: right;
+}
