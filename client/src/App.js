@@ -92,8 +92,8 @@ class App extends Component {
           <NavBar />
           <div className="content-box">
             <UserProfile user={user} logout={this.logout} />
-            <p><a onClick={this.handleClick}>Test the protected route. Results below...</a></p>
-            <p>{this.state.lockedResult}</p>
+            {/* <p><a onClick={this.handleClick}>Test the protected route. Results below...</a></p>
+            <p>{this.state.lockedResult}</p> */}
           </div>
         </div>
       );
