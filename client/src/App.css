@@ -29,3 +29,17 @@
   padding: 4px;
   margin: 5px;
 }
+
+/* .ParkDetails {
+  display: inline-block;
+} */
+
+.ParkImage {
+  border-radius: 10%;
+  background-color: rgb(206, 168, 122);
+  display: inline-block;
+  height: 200px;
+  width: 13em;
+  padding: 4px;
+  margin: 5px;
+}
