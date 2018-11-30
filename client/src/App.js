@@ -11,7 +11,8 @@ import ParksToVisit from './components/ParksToVisit';
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Link
 } from 'react-router-dom';
 
 
@@ -98,22 +99,23 @@ class App extends Component {
     let user = this.state.user
     if (user) {
       return (
-        <div className="App">
-          <NavBar user={user} checkForLocalToken={this.checkForLocalToken} logout={this.logout}></NavBar>
-          {/* <UserProfile logout={this.logout} /> */}
-          <div className="content-box">
-            {/* <Welcome /> */}
-            {/* <ParkDetails /> */}
-            <ParksToVisit />
-            {/* <p><a onClick={this.handleClick}>Test the protected route. Results below...</a></p>
-            <p>{this.state.lockedResult}</p> */}
+        <Router>
+          <div className="App">
+            <NavBar user={user} checkForLocalToken={this.checkForLocalToken} logout={this.logout}></NavBar>
+            <div className="content-box">
+              <Route exact path="/" component={Welcome} />
+              <Route path="/park-details" component={ParkDetails} />
+              <Route path="/parks-to-visit" component={ParksToVisit}/>
+              {/* <p><a onClick={this.handleClick}>Test the protected route. Results below...</a></p>
+              <p>{this.state.lockedResult}</p> */}
+            </div>
           </div>
-        </div>
+        </Router>
       );
     } else {
       return (
         <div className="App">
-        {/* <NavBar /> */}
+          <h1>Please sign up or sign in</h1>
           <div className="content-box">
             <Signup liftToken={this.liftTokenToState} />
             <Login liftToken={this.liftTokenToState} />

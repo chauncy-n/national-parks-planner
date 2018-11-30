@@ -1,9 +1,10 @@
 .User-profile {
   display: inline-block;
-  width: 10vw;
+  width: 100%;
   background-color: burlywood;
-  padding: 1rem;
-  margin: 1rem;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: top;
 }
 
 .User-profile span {
