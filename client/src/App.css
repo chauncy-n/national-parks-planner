@@ -14,17 +14,18 @@
 }
 
 .content-box {
-  width: 70%;
+  width: 90%;
   margin: 1em auto;
   padding: 4rem;
 
 }
 
 .Park {
-  border: 2px rgb(206, 168, 122);
   border-radius: 10%;
-  height: 30em;
-  width: 30%;
-  margin: 1em 5em 1em 6em;
-  float: right;
+  background-color: rgb(206, 168, 122);
+  display: inline-block;
+  height: 200px;
+  width: 13em;
+  padding: 4px;
+  margin: 5px;
 }

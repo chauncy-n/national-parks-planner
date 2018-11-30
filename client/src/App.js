@@ -3,8 +3,14 @@ import './App.css';
 import axios from 'axios';
 import Login from './Login';
 import Signup from './Signup';
-import {UserProfile} from './UserProfile';
+// import {UserProfile} from './UserProfile';
 import NavBar from './components/NavBar';
+import Welcome from './components/Welcome';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -89,10 +95,10 @@ class App extends Component {
     if (user) {
       return (
         <div className="App">
-          <NavBar user={user}></NavBar>
+          <NavBar user={user} checkForLocalToken={this.checkForLocalToken}></NavBar>
           {/* <UserProfile logout={this.logout} /> */}
           <div className="content-box">
-            
+            <Welcome />
             {/* <p><a onClick={this.handleClick}>Test the protected route. Results below...</a></p>
             <p>{this.state.lockedResult}</p> */}
           </div>

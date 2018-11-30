@@ -1,0 +1,8 @@
+.Park {
+    border: 2px rgb(206, 168, 122);
+    border-radius: 10%;
+    height: 30em;
+    width: 30%;
+    margin: 1em 5em 1em 6em;
+    float: left;
+}
