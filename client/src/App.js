@@ -89,9 +89,10 @@ class App extends Component {
     if (user) {
       return (
         <div className="App">
-          <NavBar />
+          <NavBar user={user}></NavBar>
+          {/* <UserProfile logout={this.logout} /> */}
           <div className="content-box">
-            <UserProfile user={user} logout={this.logout} />
+            
             {/* <p><a onClick={this.handleClick}>Test the protected route. Results below...</a></p>
             <p>{this.state.lockedResult}</p> */}
           </div>
@@ -100,7 +101,7 @@ class App extends Component {
     } else {
       return (
         <div className="App">
-        <NavBar />
+        {/* <NavBar /> */}
           <div className="content-box">
             <Signup liftToken={this.liftTokenToState} />
             <Login liftToken={this.liftTokenToState} />
