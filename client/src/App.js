@@ -24,7 +24,9 @@ class App extends Component {
       token: '',
       user: null,
       error: null,
-      lockedResult: ''
+      lockedResult: '',
+      allParks: [],
+      onePark: []
     }
     this.checkForLocalToken = this.checkForLocalToken.bind(this)
     this.logout = this.logout.bind(this)
@@ -93,7 +95,16 @@ class App extends Component {
 
   componentDidMount() {
     this.checkForLocalToken()
+    // fetch("/api/parks")
+    // .then(res => res.json())
+    // .then(json => this.setState({allParks: json}))
   }
+  handleClick = (id) => {
+    fetch(`/api/parks/${id}`)
+      .then(res => res.json())
+      .then(json => this.setState({onePark: json}))
+  }
+
 
   render() {
     let user = this.state.user
