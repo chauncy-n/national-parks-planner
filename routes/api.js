@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const  Trip =  require('../models/Trip');
+//const  Trip =  require('../models/Trip');
+
 
 router.get('/', (req, res, next) => {
     Park.find({})
@@ -8,7 +9,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:id', (req, res, next) => {
-    Trip.findById(req.params.id)
+    Park.findById(req.params.id)
         .then(park => {res.json(park)});
 });
 

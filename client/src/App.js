@@ -25,8 +25,9 @@ class App extends Component {
       user: null,
       error: null,
       lockedResult: '',
-      allParks: [],
-      onePark: []
+      allParks: {data:[]},
+      onePark: null,
+      handleClick:this.handleClick
     }
     this.checkForLocalToken = this.checkForLocalToken.bind(this)
     this.logout = this.logout.bind(this)
@@ -92,18 +93,32 @@ class App extends Component {
       })
     }
   }
-
+  // I think this is where to call the api 
+  // where does the Trip model come in 
   componentDidMount() {
     this.checkForLocalToken()
-    // fetch("/api/parks")
-    // .then(res => res.json())
-    // .then(json => this.setState({allParks: json}))
+    fetch("https:developer.nps.gov/api/v1/parks?limit=500&q=National%20Park&api_key=uwTVV65WHASDuGuVL9dZjoNDIO7OrW6q11S7rp7r&fields=images")
+    // .then(res => { return res.json())
+    .then(res => {
+      return res.json();
+    })
+    // .then(function(res) { return res.json() })
+
+    .then(json => {
+      console.warn(json)
+      return this.setState({allParks: json})
+    })
+    
   }
   handleClick = (id) => {
     fetch(`/api/parks/${id}`)
       .then(res => res.json())
       .then(json => this.setState({onePark: json}))
   }
+
+  // <Route exact path='/' render={() =>
+  //   <GamePage
+  //     colors={this.state.colors}
 
 
   render() {
@@ -113,8 +128,13 @@ class App extends Component {
         <Router>
           <div className="App">
             <NavBar user={user} checkForLocalToken={this.checkForLocalToken} logout={this.logout}></NavBar>
+            {console.log(this.state.allParks)}
+            {/* {JSON.stringify(this.state.allParks)} */}
             <div className="content-box">
-              <Route exact path="/" component={Welcome} />
+              <Route exact path="/" render={()=>
+                <Welcome allParks= {this.state.allParks}/>
+                
+              } />
               <Route path="/park-details" component={ParkDetails} />
               <Route path="/parks-to-visit" component={ParksToVisit}/>
               {/* <p><a onClick={this.handleClick}>Test the protected route. Results below...</a></p>
