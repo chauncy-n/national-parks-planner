@@ -9,10 +9,9 @@ const ParkInfo = (props) => (
     </div>
 )
 
-const ParkImage = ({images}) => (
-    <div className="ParkImage">
-        {/* {props.onePark.name} */}
-        {/* <img className="ParkImage" src={images[0].url}></img> */}
+const ParkImage = ({image}) => (
+    <div className="Park">
+        <img className="ParkImage" src={image}></img>
     </div>
 )
 
@@ -25,7 +24,13 @@ const DisplayParkImages = (props) => (
 const ParkDetails = (props) => (
     <div className="ParkDetails">
         <ParkInfo onePark={props.onePark}/>
-        <DisplayParkImages images={props.onePark.images}/>
+        {props.onePark.images.map((image,index) => 
+            <ParkImage
+                        image ={image.url}
+                        key= {index}        
+            />)}
+            {console.log(props.onePark.images[0].url)}
+            {console.log(props.onePark.images)}
 
     </div>
 )
