@@ -1,15 +1,18 @@
 const mongoose = require('mongoose');
 
 
-const ParkSchema = new mongoose.Schema ({
-    parkCode: String
+const parkSchema = new mongoose.Schema ({
+    parkName: String
 })
 
 const tripSchema = new mongoose.Schema({
     name: String,
     startDate: Date,
     endDate: Date,
-    parks:[ParkSchema]
+    parks:[parkSchema]
 })
 
-module.exports = mongoose.model('Trip', tripSchema);
+const Trip = mongoose.model('Trip', tripSchema)
+
+
+module.exports = Trip;

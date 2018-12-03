@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const Schema = mongoose.Schema;
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -19,9 +20,9 @@ const userSchema = new mongoose.Schema({
     required: [true, 'You must enter an email'],
     minlength: [5, 'Email must be between 5 and 99 characters'],
     maxlength: [99, 'Email must be between 5 and 99 characters']
-  }
+  },
+  trips: [{type: Schema.Types.ObjectId, ref: 'Trip'}]
 });
-
 // This returns a user object without a password
 userSchema.set('toObject', {
   transform: function(doc, ret, options) {
