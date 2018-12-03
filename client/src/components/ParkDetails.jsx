@@ -22,10 +22,13 @@ const DisplayParkImages = (props) => (
 
 const ParkDetails = (props) => (
     <div className="ParkDetails">
-        <h1>Park details and images</h1>
-        <ParkInfo />
-        <DisplayParkImages />
+        
+    
+        <h1>{props.id} Park details and images</h1>
+        {/* <ParkInfo />
+        <DisplayParkImages /> */}
     </div>
 )
 
 export default ParkDetails;
+

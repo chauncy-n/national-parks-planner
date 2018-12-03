@@ -1,7 +1,9 @@
 /* * {
   border: 1px solid black;
 } */
+p {
 
+}
 .App {
   text-align: center;
   vertical-align: top;
@@ -13,32 +15,37 @@
   text-align: center;
 }
 
-.content-box {
+.contentBox {
   width: 90%;
   margin: 1em auto;
   padding: 4rem;
-
 }
 
-.Park {
-  border-radius: 10%;
-  background-color: rgb(206, 168, 122);
-  display: inline-block;
-  height: 200px;
-  width: 13em;
-  padding: 4px;
-  margin: 5px;
-}
-
-.ParkImage {
-  border-radius: 10%;
-  background-color: rgb(206, 168, 122);
-  display: inline-block;
-  height: 200px;
-  width: 13em;
-  padding: 4px;
-  margin: 5px;
-}
 .NavBar {
   background-color: burlywood;
 }
+
+.Park{
+  border-radius: 10%;
+
+  display: inline-block;
+  height: 200px;
+  width: 13em;
+  padding: 4px;
+  margin: 5px;
+}
+
+.parkInfo {
+  margin: 0;
+}
+
+.ParkImage  {
+  border-radius: 10%;
+  background-color: rgb(206, 168, 122);
+  display: inline-block;
+  height: 200px;
+  width: 13em;
+  padding: 4px;
+  margin: 5px;
+}
+
