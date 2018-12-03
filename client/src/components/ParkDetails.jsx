@@ -15,11 +15,6 @@ const ParkImage = ({image}) => (
     </div>
 )
 
-const DisplayParkImages = (props) => (
-    <div>
-        <ParkImage />
-    </div>
-)
 
 const ParkDetails = (props) => (
     <div className="ParkDetails">
@@ -29,9 +24,6 @@ const ParkDetails = (props) => (
                         image ={image.url}
                         key= {index}        
             />)}
-            {console.log(props.onePark.images[0].url)}
-            {console.log(props.onePark.images)}
-
     </div>
 )
 
