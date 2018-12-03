@@ -2,15 +2,17 @@ import React from 'react';
 
 
 const ParkInfo = (props) => (
-    <div>
-        <h3>Park info</h3>
-        <p>lots of words, discription maybe contact info anything else etc.</p>
+    <div className="ParkInfo">
+    <h1>{props.onePark.name} Park details and images</h1>
+        <p>{props.onePark.description}</p>
+        <p>States:{props.onePark.states} </p>
     </div>
 )
 
-const ParkImage = (props) => (
+const ParkImage = ({images}) => (
     <div className="ParkImage">
-        <h1>This should be an image</h1>
+        {/* {props.onePark.name} */}
+        {/* <img className="ParkImage" src={images[0].url}></img> */}
     </div>
 )
 
@@ -22,11 +24,9 @@ const DisplayParkImages = (props) => (
 
 const ParkDetails = (props) => (
     <div className="ParkDetails">
-        
-    
-        <h1>{props.id} Park details and images</h1>
-        {/* <ParkInfo />
-        <DisplayParkImages /> */}
+        <ParkInfo onePark={props.onePark}/>
+        <DisplayParkImages images={props.onePark.images}/>
+
     </div>
 )
 

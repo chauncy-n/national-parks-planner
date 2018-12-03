@@ -6,15 +6,12 @@ import {
     Link
 } from 'react-router-dom';
 
-const Park = (props) => (
+const Park = ({image, name, onClick}) => (
     <div className="Park">
-            
-            <Link to={`/park-details/${props.park.name}`}>
-            <img className="ParkImage" src={props.park.images[0].url} alt="park photo unavailable"/>
+            <Link to={`/park-details/${name}`}>
+                <img className="ParkImage" src={image.url} alt="park photo unavailable" onClick={onClick}/>
             </Link> 
-
-            <p className="parkInfo">{props.park.name} props.</p>
-            
+            <p className="parkName">{name} </p>
     </div>
 
 )

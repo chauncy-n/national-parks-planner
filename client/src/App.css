@@ -35,7 +35,12 @@ p {
   margin: 5px;
 }
 
-.parkInfo {
+.ParkInfo {
+  background-color: rgba(198, 173, 148, .5);
+
+}
+
+.parkName {
   margin: 0;
 }
 
