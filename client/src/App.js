@@ -104,6 +104,20 @@ class App extends Component {
       return this.setState({allParks: json})
     })
   }
+
+  getUserTrips = () => {
+    console.log(`getUserTrips: hasGrabbedTrips = ${this.state.hasGrabbedTrips}, trips = ${this.state.userTrips}`)
+    if (!this.state.hasGrabbedTrips) {
+      this.setState({hasGrabbedTrips: true})
+      axios.get(`/api/trips/${this.state.user.id}`).then(res => {
+        console.log("Got a response:")
+        console.log(res)
+        this.setState({trips: res.json()})
+      }).catch(error => console.error(error))
+    }
+    return this.state.trips
+  }
+
   handleDetailsClick = (id) => {
     let park = this.state.allParks.data.find(park => park.name === id)
     this.setState({onePark: park})
@@ -135,7 +149,9 @@ class App extends Component {
                     <ParkDetails onePark={this.state.onePark}  id={props.match.params.id} 
                     addParkToTrip={this.addParkToTrip}/>
                     }/>
-                  <Route path="/parks-to-visit" component={ParksToVisit}/>
+                  <Route path="/parks-to-visit" render={(props) => 
+                      <ParksToVisit getUserTrips={this.getUserTrips}/>
+                  }/>
                   <Route path="*" render={()=> <h1>Not Found</h1>} />
                 </Switch>
                   {/* <p><a onClick={this.handleClick}>Test the protected route. Results below...</a></p>

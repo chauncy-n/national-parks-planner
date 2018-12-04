@@ -3,24 +3,30 @@ const router = express.Router();
 const  Trip =  require('../models/Trip');
 
 
+//get all trips
+router.get('/trips/:userId', (req, res, next) => {
+    console.log("OMG")
+    User.findById(req.params.userId)
+        .then(user => {res.json(user.trips)})
+})
+
+//get a specific trip
+router.get('/trips/:userId/:id', (req, res, next) => {
+
+})
+
 // create a new trip 
-router.post('/', (req, res, next) => {
+router.post('/trips/:userId', (req, res, next) => {
     let park = req.park
     Trip.create({
         name: park.name,
-        startDate: 
-        endDate:
-        parks:
+        parks: []
     })
-
 })
 // add to a trip
-router.put('/:id', )
+router.put('/trips/:userId/:id', )
 
-//get all trips
-router.get('/', (req, res, next) => {
 
-})
 
 
 

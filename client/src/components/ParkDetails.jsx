@@ -21,17 +21,19 @@ const AddParkToTrip = (props) => (
 )
 
 
-const ParkDetails = (props) => (
-    <div className="ParkDetails">
-        <ParkInfo onePark={props.onePark}/>
-        {props.onePark.images.map((image,index) => 
-            <ParkImage
-                        image ={image.url}
-                        key= {index}        
-            />)}
-        <AddParkToTrip />
-    </div>
-)
+const ParkDetails = (props) => {
+    return (
+        <div className="ParkDetails">
+            <ParkInfo onePark={props.onePark}/>
+            {props.onePark.images.map((image,index) => 
+                <ParkImage
+                            image ={image.url}
+                            key= {index}        
+                />)}
+            <AddParkToTrip addParkToTrip= {props.addParkToTrip} />
+        </div>
+    )
+}
 
 export default ParkDetails;
 

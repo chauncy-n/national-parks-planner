@@ -7,8 +7,6 @@ const parkSchema = new mongoose.Schema ({
 
 const tripSchema = new mongoose.Schema({
     name: String,
-    startDate: Date,
-    endDate: Date,
     parks:[parkSchema]
 })
 

@@ -4,6 +4,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const User = require("../models/User");
 const jwt = require('jsonwebtoken');
+const Trip = require('../models/Trip')
 
 // Route for signing up (creating a new account)
 router.post('/signup', (req, res) => {
@@ -18,34 +19,52 @@ router.post('/signup', (req, res) => {
       });
     } else {
       // Email is available, create the user in the DB
-      User.create({
-        name: req.body.name,
-        email: req.body.email,
-        password: req.body.password
-      }, function(err, user) {
-        // check for any DB errors
+      Trip.create({
+        name: "first trip",
+        parks: [],
+
+      },function(err, firstTrip) {
         if (err) {
-          // Some error occurred creating the user
           res.json({
             type: 'db_error',
             status: 500,
-            message: "Database error occurred when creating the account",
+            message: "Database error occurred when creating a trip",
             error: err
-          });
+          });  
         } else {
-          // Log the user in (sign a new token)
-          var token = jwt.sign(user.toObject(), process.env.JWT_SECRET, {
-            expiresIn: 60 * 60 * 24
-          });
-          // Return user and token to React app
-          res.json({
-            type: 'success',
-            status: 200,
-            user,
-            token
-          });
+          User.create({
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password,
+            trips: [ firstTrip._id ],
+          }, function(err, user) {
+            // check for any DB errors
+            if (err) {
+              // Some error occurred creating the user
+              res.json({
+                type: 'db_error',
+                status: 500,
+                message: "Database error occurred when creating the account",
+                error: err
+              });
+            } else {
+              // Log the user in (sign a new token)
+              var token = jwt.sign(user.toObject(), process.env.JWT_SECRET, {
+                expiresIn: 60 * 60 * 24
+              });
+              // Return user and token to React app
+              res.json({
+                type: 'success',
+                status: 200,
+                user,
+                token
+              });
+            }
+          })
         }
-      })
+      
+      });
+      
     }
   })
 });
