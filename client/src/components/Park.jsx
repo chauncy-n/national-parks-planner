@@ -12,6 +12,7 @@ const Park = ({image, name, onClick}) => (
                 <img className="ParkImage" src={image.url} alt="park photo unavailable" onClick={onClick}/>
             </Link> 
             <p className="parkName">{name} </p>
+            
     </div>
 
 )

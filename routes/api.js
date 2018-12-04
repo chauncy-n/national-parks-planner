@@ -8,7 +8,9 @@ router.post('/', (req, res, next) => {
     let park = req.park
     Trip.create({
         name: park.name,
-
+        startDate: 
+        endDate:
+        parks:
     })
 
 })
@@ -20,14 +22,6 @@ router.get('/', (req, res, next) => {
 
 })
 
-// Queen.create({
-//     name: data.name,
-//     age: data.age,
-//     royalJellyFlavor: data.flavor
-// }, function(err) {
-//     if (err) return next(err);
-//     res.redirect('/queens');
-// });
 
 
 // router.get('/:id', (req, res, next) => {

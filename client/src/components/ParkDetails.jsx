@@ -15,6 +15,11 @@ const ParkImage = ({image}) => (
     </div>
 )
 
+const AddParkToTrip = (props) => (
+    <button onClick={() => props.addParkToTrip()}>this is a button</button>
+            //  onClick={() => props.handleDetailsClick(park.name)}
+)
+
 
 const ParkDetails = (props) => (
     <div className="ParkDetails">
@@ -24,6 +29,7 @@ const ParkDetails = (props) => (
                         image ={image.url}
                         key= {index}        
             />)}
+        <AddParkToTrip />
     </div>
 )
 

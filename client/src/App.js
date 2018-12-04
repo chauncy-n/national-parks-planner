@@ -112,6 +112,10 @@ class App extends Component {
     console.log(park)
   }
 
+  addParkToTrip = (park) => {
+    console.log("hi")
+  }
+
   render() {
     let user = this.state.user
     if (user) {
@@ -128,7 +132,8 @@ class App extends Component {
                     />  
                   } />
                   <Route path="/park-details/:id" render={(props) =>
-                    <ParkDetails onePark={this.state.onePark}  id={props.match.params.id}/>
+                    <ParkDetails onePark={this.state.onePark}  id={props.match.params.id} 
+                    addParkToTrip={this.addParkToTrip}/>
                     }/>
                   <Route path="/parks-to-visit" component={ParksToVisit}/>
                   <Route path="*" render={()=> <h1>Not Found</h1>} />
