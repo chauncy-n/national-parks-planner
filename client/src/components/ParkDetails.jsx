@@ -1,5 +1,5 @@
 import React from 'react';
-
+// import AddParkToTrip from './AddParkToTrip'
 
 const ParkInfo = (props) => (
     <div className="ParkInfo">
@@ -9,18 +9,16 @@ const ParkInfo = (props) => (
     </div>
 )
 
-const ParkImage = ({image}) => (
+const ParkImage = ({image, key}) => (
     <div className="Park">
         <img className="ParkImage" src={image}></img>
     </div>
 )
 
-const AddParkToTrip = (props) => (
-    <button onClick={() => props.addParkToTrip()}>this is a button</button>
-            //  onClick={() => props.handleDetailsClick(park.name)}
+const AddParkToTrip = ({key, addParkToTrip, name}) => (
+    // console.log(props, "fffffffffffff")
+    <button  onClick={() => addParkToTrip()} >Add Park to this trip {name}</button> 
 )
-
-
 const ParkDetails = (props) => {
     return (
         <div className="ParkDetails">
@@ -30,10 +28,28 @@ const ParkDetails = (props) => {
                             image ={image.url}
                             key= {index}        
                 />)}
-            <AddParkToTrip addParkToTrip= {props.addParkToTrip} />
+            {props.trips.map((trip, index) =>     
+            <AddParkToTrip 
+                key={index}
+                addParkToTrip= {props.addParkToTrip} 
+                name={trip.name} 
+                />
+            )}    
         </div>
     )
 }
+// {props.allParks.data.map((park, index) => 
+//     <Park
+//         image = {park.images[0]}
+//         name = {park.name}
+//         key ={index}
+//         onClick={() => props.handleDetailsClick(park.name)}
+//         >
+//     </Park>)}
+
+
+
+
 
 export default ParkDetails;
 
