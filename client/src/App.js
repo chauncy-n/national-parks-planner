@@ -120,11 +120,11 @@ class App extends Component {
     this.setState({onePark: park})
   }
 
-  addParkToTrip = (park) => {
+  addParkToTrip = (park, id) => {
     // axios.put(`/api/trips/${this.state.user._id}`)
+    
+    console.log(id)
     console.log(park)
-    console.log("hi")
-
   }
 
   render() {
@@ -144,7 +144,7 @@ class App extends Component {
                   } />
                   <Route path="/park-details/:id" render={(props) =>
                     <ParkDetails onePark={this.state.onePark}  id={props.match.params.id} 
-                    addParkToTrip={this.addParkToTrip} trips={this.state.trips}/>
+                    addParkToTrip={this.addParkToTrip} trips={this.state.trips} />
                     }/>
                   <Route path="/parks-to-visit" render={(props) => 
                       <ParksToVisit getUserTrips={this.getUserTrips} trips={this.state.trips}/>

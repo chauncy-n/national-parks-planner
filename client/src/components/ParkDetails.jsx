@@ -28,7 +28,7 @@ const ParkDetails = (props) => {
             <AddParkToTrip 
                 key={index}
                 addParkToTrip= {props.addParkToTrip} 
-                name={trip.name} 
+                trip={trip} 
                 onePark={props.onePark}
                 />
             )}    

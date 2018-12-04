@@ -1,8 +1,8 @@
 import React from 'react';
 
-const AddParkToTrip = ({key, addParkToTrip, name, onePark}) => (
+const AddParkToTrip = ({key, addParkToTrip, trip, onePark}) => (
 
-    <button  onClick={() => addParkToTrip(onePark.name)} >Add park to {name}</button> 
+    <button  onClick={() => addParkToTrip(onePark.name, trip._id)} >Add park to {trip.name}</button> 
 )
 
 

@@ -11,7 +11,9 @@ router.get('/trips/:userId', (req, res, next) => {
     })
 })
 //add a new park 
-
+router.post('/trips/:userId', (req, res, next) => {
+    User.findById(req.params.userId)
+})
 
 
 //get a specific trip
@@ -28,6 +30,9 @@ router.post('/trips/:userId', (req, res, next) => {
     })
 })
 
+
+
+
 // function newBar(req, res) {
 //     res.render('bars/new', {pageTitle: 'NEW BAR'});
 //   }
@@ -41,21 +46,7 @@ router.post('/trips/:userId', (req, res, next) => {
 
 
 
-// add to a trip
-router.put('/trips/:userId/:id', )
 
-
-
-
-
-// router.get('/:id', (req, res, next) => {
-//     Park.findById(req.params.id)
-//         .then(park => {res.json(park)});
-// });
-
-// router.get('/', (req, res, next) => {
-
-// });
 
 
 module.exports = router;
