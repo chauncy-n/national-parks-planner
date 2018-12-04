@@ -109,7 +109,6 @@ class App extends Component {
   }
 
   getUserTrips = () => {
-    // console.log(`getUserTrips: hasGrabbedTrips = ${this.state.hasGrabbedTrips}, trips = ${this.state.userTrips}`)
     console.log(`user: `, this.state.user)
     axios.get(`/api/trips/${this.state.user._id}`)
       .then( res => this.setState({trips: res.data}))
@@ -119,13 +118,13 @@ class App extends Component {
   handleDetailsClick = (id) => {
     let park = this.state.allParks.data.find(park => park.name === id)
     this.setState({onePark: park})
-
-    console.log(this.state.onePark)
-    console.log(park)
   }
 
   addParkToTrip = (park) => {
+    // axios.put(`/api/trips/${this.state.user._id}`)
+    console.log(park)
     console.log("hi")
+
   }
 
   render() {

@@ -1,5 +1,5 @@
 import React from 'react';
-// import AddParkToTrip from './AddParkToTrip'
+import AddParkToTrip from './AddParkToTrip'
 
 const ParkInfo = (props) => (
     <div className="ParkInfo">
@@ -15,10 +15,6 @@ const ParkImage = ({image, key}) => (
     </div>
 )
 
-const AddParkToTrip = ({key, addParkToTrip, name}) => (
-    // console.log(props, "fffffffffffff")
-    <button  onClick={() => addParkToTrip()} >Add Park to this trip {name}</button> 
-)
 const ParkDetails = (props) => {
     return (
         <div className="ParkDetails">
@@ -33,23 +29,12 @@ const ParkDetails = (props) => {
                 key={index}
                 addParkToTrip= {props.addParkToTrip} 
                 name={trip.name} 
+                onePark={props.onePark}
                 />
             )}    
         </div>
     )
 }
-// {props.allParks.data.map((park, index) => 
-//     <Park
-//         image = {park.images[0]}
-//         name = {park.name}
-//         key ={index}
-//         onClick={() => props.handleDetailsClick(park.name)}
-//         >
-//     </Park>)}
-
-
-
-
 
 export default ParkDetails;
 
