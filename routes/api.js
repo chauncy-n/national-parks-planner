@@ -47,9 +47,17 @@ router.delete('/trips/:tripId/parks/:parkName', (req, res) =>{
         trip.save(() => res.json(trip))
     })
 })
-    //get a specific trip
-    router.get('/trips/:userId/:id', (req, res) => {
+//get a specific trip
+router.get('/trips/:userId/:id', (req, res) => {
 
+})
+
+router.post('/trips', (req, res)=> {
+    Trip.create({
+        name: "another trip",
+        parks: []
+        
+    })
 })
 
 

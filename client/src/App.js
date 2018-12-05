@@ -143,6 +143,12 @@ class App extends Component {
     axios.delete(`/api/trips/${trip._id}/parks/${park.parkName}`)
     .then(res => this.updateTrip(res))
   }
+  addTrip = (trip) => {
+    let tripInfo = {trip: trip}
+    axios.post(`/api/trips/`, tripInfo )
+    // create trip ?
+    //.then(res => this.updateTrip(res))
+  }
 
   render() {
     let user = this.state.user
