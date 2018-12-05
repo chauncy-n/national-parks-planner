@@ -9,9 +9,8 @@ Tired of planning your trip based on a boring old map? Use your eyes! Pick natio
 * Mongoose, MongoDB
 * National Parks API
 
-## Getting Started
+## You can visit the app [here]() on Heroku.
 
-You can visit the app [here]() on Heroku.
 Interested in helping? For a list of user stories, work you can help with, and outstanding issues, visit the [Trello board](https://trello.com/b/10dYoKHs/national-parks).
 
 ## Unsolved Problems

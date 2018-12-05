@@ -121,7 +121,6 @@ class App extends Component {
   }
 
   getUserTrips = () => {
-    console.log(`user: `, this.state.user)
     axios.get(`/api/trips/${this.state.user._id}`)
       .then( res => this.setState({trips: res.data}))
       .catch( err => console.log(err))
@@ -173,7 +172,9 @@ class App extends Component {
                       <ParksToVisit 
                       getUserTrips={this.getUserTrips}
                       trips={this.state.trips}  
-                      removeParkFromTrip={this.removeParkFromTrip}/>
+                      removeParkFromTrip={this.removeParkFromTrip}
+                      addTrip={this.addTrip}
+                      />
                   }/>
                   <Route path="*" render={()=> <h1>Not Found</h1>} />
                 </Switch>
