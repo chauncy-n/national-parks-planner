@@ -144,7 +144,7 @@ class App extends Component {
   }
   addTrip = (trip) => {
     let tripInfo = {trip: trip}
-    axios.post(`/api/trips/`, tripInfo )
+    axios.post(`/api/trips/new`, tripInfo )
     // create trip ?
     //.then(res => this.updateTrip(res))
   }

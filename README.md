@@ -25,6 +25,6 @@ Also I would like to do these things
 * I want to be able to select a State and look at just their 
     national parks and then plan a trip
 * Improved visual experience for the user
-
+* make it more mobile friendly
 
 

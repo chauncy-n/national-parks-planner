@@ -52,11 +52,10 @@ router.get('/trips/:userId/:id', (req, res) => {
 
 })
 
-router.post('/trips', (req, res)=> {
+router.post('/trips/new', (req, res)=> {
     Trip.create({
         name: "another trip",
-        parks: []
-        
+
     })
 })
 
