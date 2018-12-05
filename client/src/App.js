@@ -108,6 +108,18 @@ class App extends Component {
     })
   }
 
+  updateTrip = (res) => {
+    let trips = this.state.trips
+    let newTrips = trips.map(trip => {
+      if (trip._id == res.data._id) {
+        return res.data
+      } else {
+        return trip
+      }
+    })
+    this.setState({trips: newTrips})
+  }
+
   getUserTrips = () => {
     console.log(`user: `, this.state.user)
     axios.get(`/api/trips/${this.state.user._id}`)
@@ -123,33 +135,13 @@ class App extends Component {
   addParkToTrip = (park, id) => {
     let tripInfo = {park: park, id: id}
     axios.post(`/api/trips/${id}`, tripInfo )
-    .then(res => {
-      let trips = this.state.trips
-      let newTrips = trips.map(trip => {
-        if (trip._id == res.data._id) {
-          return res.data
-        } else {
-          return trip
-        }
-      })
-      this.setState({trips: newTrips})
-    })
+    .then(res => this.updateTrip(res))
   }
 
   removeParkFromTrip = (trip, park) => {
 
     axios.delete(`/api/trips/${trip._id}/parks/${park.parkName}`)
-    .then(res => {
-      let trips = this.state.trips
-      let newTrips = trips.map(trip => {
-        if (trip._id == res.data._id) {
-          return res.data
-        } else {
-          return trip
-        }
-      })
-      this.setState({trips: newTrips})
-    })
+    .then(res => this.updateTrip(res))
   }
 
   render() {
