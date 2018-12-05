@@ -122,6 +122,7 @@ class App extends Component {
 
   getUserTrips = () => {
     if (this.state.user) {
+      console.log('firing api call')
       axios.get(`/api/trips/${this.state.user._id}`)
         .then( res => this.setState({trips: res.data}))
         .catch( err => console.log(err))
