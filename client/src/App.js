@@ -121,10 +121,11 @@ class App extends Component {
   }
 
   addParkToTrip = (park, id) => {
-    // axios.put(`/api/trips/${this.state.user._id}`)
-    
-    console.log(id)
-    console.log(park)
+    let tripInfo = {park, id}
+    axios.post(`/api/trips/${id}`, tripInfo )
+      .then(res => this.setState({trips: res.data}))
+    // console.log(id)
+    // console.log(park)
   }
 
   render() {
