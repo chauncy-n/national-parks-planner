@@ -121,9 +121,13 @@ class App extends Component {
   }
 
   getUserTrips = () => {
-    axios.get(`/api/trips/${this.state.user._id}`)
-      .then( res => this.setState({trips: res.data}))
-      .catch( err => console.log(err))
+    if (this.state.user) {
+      axios.get(`/api/trips/${this.state.user._id}`)
+        .then( res => this.setState({trips: res.data}))
+        .catch( err => console.log(err))
+    } else {
+      console.log('Chauncy is good')
+    }
   }
 
   handleDetailsClick = (id) => {
