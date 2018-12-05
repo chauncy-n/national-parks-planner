@@ -102,9 +102,7 @@ class App extends Component {
       return res.json();
     })
     .then(json => {
-      return this.setState({allParks: json}, () => {
-        this.getUserTrips();
-      })
+      return this.setState({allParks: json})
     })
   }
 
