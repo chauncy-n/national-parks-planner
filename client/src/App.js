@@ -121,11 +121,35 @@ class App extends Component {
   }
 
   addParkToTrip = (park, id) => {
-    let tripInfo = {park, id}
+    let tripInfo = {park: park, id: id}
     axios.post(`/api/trips/${id}`, tripInfo )
-      .then(res => this.setState({trips: res.data}))
-    // console.log(id)
-    // console.log(park)
+    .then(res => {
+      let trips = this.state.trips
+      let newTrips = trips.map(trip => {
+        if (trip._id == res.data._id) {
+          return res.data
+        } else {
+          return trip
+        }
+      })
+      this.setState({trips: newTrips})
+    })
+  }
+
+  removeParkFromTrip = (trip, park) => {
+
+    axios.delete(`/api/trips/${trip._id}/parks/${park.parkName}`)
+    .then(res => {
+      let trips = this.state.trips
+      let newTrips = trips.map(trip => {
+        if (trip._id == res.data._id) {
+          return res.data
+        } else {
+          return trip
+        }
+      })
+      this.setState({trips: newTrips})
+    })
   }
 
   render() {
@@ -148,7 +172,10 @@ class App extends Component {
                     addParkToTrip={this.addParkToTrip} trips={this.state.trips} />
                     }/>
                   <Route path="/parks-to-visit" render={(props) => 
-                      <ParksToVisit getUserTrips={this.getUserTrips} trips={this.state.trips}/>
+                      <ParksToVisit 
+                      getUserTrips={this.getUserTrips}
+                      trips={this.state.trips}  
+                      removeParkFromTrip={this.removeParkFromTrip}/>
                   }/>
                   <Route path="*" render={()=> <h1>Not Found</h1>} />
                 </Switch>

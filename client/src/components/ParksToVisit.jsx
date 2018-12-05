@@ -6,11 +6,16 @@ class ParksToVisit extends React.Component {
         this.props.getUserTrips()
     }
     render() {
-        const trips = this.props.trips.map( (trip, i) => <p 
+        // need to display trip name and then map over parks to get each park
+        const trips = this.props.trips.map( (trip, i) => (<div
         key={i}>
-        {trip.name}
-        {trip.parks}
-        </p>)
+            {trip.name}
+            {trip.parks.map((park, index) => 
+                <p key={index}
+                park={park.parkName}
+                >{park.parkName} <button onClick={() => this.props.removeParkFromTrip(trip, park)}>Remove this park</button></p>
+            )}
+        </div>))
         return (
                 <div>
                     <h2>Parks I want to go to</h2>
@@ -21,3 +26,13 @@ class ParksToVisit extends React.Component {
 }
 
 export default ParksToVisit; 
+
+
+// {props.trips.map((trip, index) =>     
+//     <AddParkToTrip 
+//         key={index}
+//         addParkToTrip= {props.addParkToTrip} 
+//         trip={trip} 
+//         onePark={props.onePark}
+//         />
+//     )}    
