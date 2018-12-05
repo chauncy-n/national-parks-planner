@@ -40,15 +40,6 @@ app.use('/auth', auth);
 // This line uses the express-jwt node module to protect the routes
 app.use('/locked', expressJWT({secret: process.env.JWT_SECRET}).unless({method: 'POST'}), locked);
 
-// something in here ?
-// app.use(express.urlencoded({extended: true}));
-// app.use(express.json());
-// app.use(require('method-override')('_method'));
-
-// app.use('/api/parks', require('./routes/api'));
-
-
-
 
 app.get('*', (req, res) => {
   res.sendFile(__dirname + "/client/build/index.html");

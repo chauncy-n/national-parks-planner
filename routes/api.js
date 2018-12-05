@@ -31,7 +31,6 @@ router.post('/trips/:tripId', (req, res) => {
     Trip.findById(req.params.tripId, (err, trip) => {
         if (reportError(err, res)) { return }
         trip.parks.push({parkName: req.body.park})
-        console.log(trip)
         trip.save(() => {
             res.json(trip)
         })
@@ -54,7 +53,7 @@ router.get('/trips/:userId/:id', (req, res) => {
 
 router.post('/trips/new', (req, res)=> {
     Trip.create({
-        name: "another trip",
+        name: "another trip"
 
     })
 })
